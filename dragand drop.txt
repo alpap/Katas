@@ -1,0 +1,89 @@
+<div class="container-fluid" id="app">
+
+    <div class="container-fluid machine-contents">
+
+      <draggable v-model="jobs">
+        <transition-group name="list-complete">
+          <div v-for="(job, index) in jobs" v-bind:key="job.jobNumber" class="list-complete-item">
+            <div>
+              {{ job.jobNumber }}
+            </div>
+            <div>
+              <br>
+              <button v-on:click="removeJob(jobs, index)">Remove</button>
+            </div>
+          </div>
+        </transition-group>
+      </draggable>
+
+
+  </div>
+
+      <br>
+      <input type="text" placeholder="job number" name="jobNumber" v-model='received'>
+      <button v-on:click="Auth">OK</button>
+      <div>
+      <p>
+      {{received}}
+      </p>
+      </div>
+       <p>
+      {{jobs}}
+      </p>
+</div>
+
+
+
+var vm = new Vue({
+  el: '#app',
+  name: 'mfgActivity',
+  data: {
+  	received:"",
+
+      jobs: [{
+          jobNumber: "14037-12"
+        },
+        {
+          jobNumber: "14038-13"
+        },
+        {
+          jobNumber: "14048-15"
+        },
+        {
+          jobNumber: "14058-15"
+        },
+        {
+          jobNumber: "14078-15"
+        },
+        {
+          jobNumber: "14098-15"
+        },
+      ]
+
+  },
+  methods: {
+    removeJob: function(jobs, index) {
+      // Remove job from GUI
+      jobs.splice(index, 1);
+    },
+    Auth: function() {
+            this.jobs.push({jobNumber: this.received})
+            this.received=""
+
+    },
+  }
+})
+
+
+.list-complete-item {
+  padding: 4px;
+  border-radius: 12px;
+  margin-top: 4px;
+  border: solid 1px;
+  transition: all 1s;
+}
+
+.list-complete-enter,
+.list-complete-leave-active {
+  opacity: 0;
+}
