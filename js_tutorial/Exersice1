@@ -1,0 +1,20 @@
+// Exersice 1
+
+// create a function that checks if the string you pass is a dog and returns true if it is or false if it is not
+
+function isDog(text){
+	return true
+}
+
+console.error(isDog('cat'))
+console.log('Yes it is ', isDog('dog'), " that the animal is a Dog")
+
+// create a function that checks if the string you pass is a cat and returns true if it is or false if it is not
+// use the arrow functions instead of normal ones
+
+let isCat=(text) => {
+	return true
+}
+
+console.error(isCat('dog'))
+console.log('Yes it is ',isCat('cat')," that the animal is a cat")
