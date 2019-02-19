@@ -1,0 +1,50 @@
+// filter multiple objects using multiple selectors 
+
+class user{
+	name:string
+	surname:string
+	id:string
+	constructor(name, surname,id) {
+		this.name=name
+		this.surname = surname
+		this.id = id
+	}
+}
+
+let arr : user[]= new Array()
+
+arr.push(new user("al","pap",'1'))
+arr.push(new user("ak","pak",'2'))
+arr.push(new user("al","pap",'1'))
+arr.push(new user("al","pap",'1'))
+arr.push(new user("ak","pak",'2'))
+arr.push(new user("ak","pak",'2'))
+arr.push(new user("ak","pak",'2'))
+arr.push(new user("ak","pak",'2'))
+arr.push(new user("al","pap",'1'))
+arr.push(new user("al","pap",'1'))
+arr.push(new user("al","pap",'1'))
+arr.push(new user("ao","pal",'3'))
+arr.push(new user("ao","pal",'3'))
+arr.push(new user("ao","pal",'3'))
+arr.push(new user("ao","pal",'3'))
+arr.push(new user("ao","pal",'3'))
+
+
+console.log(arr);
+
+
+let namefilter=(users:user[], name:string) :user[] => 
+	users.filter(user =>
+		user.name==name
+	)
+
+let multiplenamefilter = (users: user[], names: string[]): user[] =>
+	users.filter(user =>
+		names.includes(user.name)
+	)
+
+
+let namefilters: string[] = ["ao", "ak"]
+console.log(namefilter(arr,'al'));
+console.log(multiplenamefilter(arr,namefilters));
