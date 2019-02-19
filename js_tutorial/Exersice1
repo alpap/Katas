@@ -1,4 +1,8 @@
-// Exersice 1
+// Exersice 1: using if statements
+
+// if (statement){
+// 	return value
+// }
 
 // create a function that checks if the string you pass is a dog and returns true if it is or false if it is not
 
